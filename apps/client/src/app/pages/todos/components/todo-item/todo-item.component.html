@@ -1,0 +1,11 @@
+<li class="todo-item" *ngIf="todo">
+  <mat-checkbox
+    [checked]="todo.completed"
+    (change)="toggleItem($event.checked)"
+    [class]="{'todo-title': true, 'todo-complete': todo.completed }"
+  >{{ todo.title }}</mat-checkbox>
+
+  <button mat-icon-button color="error" (click)="removeItem()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</li>

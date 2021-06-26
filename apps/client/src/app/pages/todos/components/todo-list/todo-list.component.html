@@ -1,0 +1,14 @@
+<div class="todo-list" [class]="{'avoid-events': busy}">
+  <h2>Todo List</h2>
+
+  <todo-input (save)="onSave($event)"></todo-input>
+
+  <ul *ngIf="todos$ | async as todos">
+    <todo-item
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      (removeTodo)="onRemove($event)"
+      (toggleTodo)="onToggle($event)"
+    ></todo-item>
+  </ul>
+</div>
